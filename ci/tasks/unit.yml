@@ -12,5 +12,5 @@ inputs:
   - name: maven-repo
 
 run:
-  dir: maven-repo
+# dir: maven-repo
   path: greeting-producer/ci/tasks/unit.sh
