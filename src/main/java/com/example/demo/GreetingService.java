@@ -6,6 +6,6 @@ import com.example.demo.Greeting;
 @Service
 public class GreetingService {
 	public Greeting getById(String id) {
-		return new Greeting(id, "Hi");
+		return new Greeting(id, "Hi Kaburagi");
 	}
 }
