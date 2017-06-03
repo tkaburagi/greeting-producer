@@ -9,6 +9,8 @@ image_resource:
 inputs:
   - name: greeting-producer
   - name: maven-cache
+  - name: maven-repo
 
 run:
+  dir: maven-repo
   path: greeting-producer/ci/tasks/unit.sh
