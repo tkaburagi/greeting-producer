@@ -1,4 +1,4 @@
 #!/bin/sh
-cd demo-onlinestore-service
+cd greeting-producer
 ./mvnw clean package
-mv target/*.jar ../build/demo-onlinestore-service.jar
+mv target/*.jar ../build/greeting-producer.jar
