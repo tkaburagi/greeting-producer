@@ -1,0 +1,3 @@
+com/example/demo/GreetingProducerApplicationTests.class
+com/example/demo/contracts/ContractVerifierBase.class
+org/springframework/cloud/contract/verifier/tests/ContractVerifierTest.class

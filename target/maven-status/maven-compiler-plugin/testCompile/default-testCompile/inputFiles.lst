@@ -1,0 +1,3 @@
+/Users/tkaburagi/Documents/sts/spring-cloud-contracts-workshop/greeting-producer/src/test/java/com/example/demo/GreetingProducerApplicationTests.java
+/Users/tkaburagi/Documents/sts/spring-cloud-contracts-workshop/greeting-producer/src/test/java/com/example/demo/contracts/ContractVerifierBase.java
+/Users/tkaburagi/Documents/sts/spring-cloud-contracts-workshop/greeting-producer/target/generated-test-sources/contracts/org/springframework/cloud/contract/verifier/tests/ContractVerifierTest.java

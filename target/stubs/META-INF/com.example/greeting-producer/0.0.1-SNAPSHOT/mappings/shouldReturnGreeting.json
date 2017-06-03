@@ -1,0 +1,16 @@
+{
+  "id" : "e26588b4-da1f-4785-ac42-4a982da3c1a1",
+  "request" : {
+    "urlPattern" : "/greeting/[0-9]{5}",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"message\":\"Hi Kaburagi\"}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "e26588b4-da1f-4785-ac42-4a982da3c1a1"
+}
