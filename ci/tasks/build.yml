@@ -8,7 +8,7 @@ image_resource:
 
 inputs:
   - name: greeting-producer
-  - name: .m2
+  - name: maven-cache
 
 outputs:
   - name: build
