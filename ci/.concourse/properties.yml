@@ -7,3 +7,7 @@ cf-org: labs-playground
 cf-space: "Takayuki Kaburagi"
 app-domain: "cfapps.io"
 app-preffix: greeting-producer
+m2-settings-repo-id: artifactory-local
+m2-settings-repo-username: admin
+m2-settings-repo-password: password
+maven-local-dir: m2/rootfs

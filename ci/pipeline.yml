@@ -14,6 +14,11 @@ resources:
       branch: {{github-branch}}
     check_every: 10s
 
+  - name: m2
+    type: docker-image
+    source:
+     repository: springcloud/spring-pipeline-m2
+
   # - name: upload-artifact
   #   type: gcs-resource
   #   source:
@@ -43,26 +48,37 @@ jobs:
   - name: unit-test
     public: true
     plan:
-      - get: greeting-producer
-        trigger: true
+      - aggregate:
+        - get: greeting-producer
+          trigger: true
+        - get: m2
       - task: unit
         file: greeting-producer/ci/tasks/unit.yml
+        params: 
+          - M2_SETTINGS_REPO_ID: {{m2-settings-repo-id}}
+          - M2_SETTINGS_REPO_USERNAME: {{m2-settings-repo-username}}
+          - M2_SETTINGS_REPO_PASSWORD: {{m2-settings-repo-password}}
+          - M2_REPO: {{maven-local-dir}}
 
   - name: integration-test
     public: true
     plan:
-      - get: greeting-producer
-        trigger: true
-        passed: [ unit-test ]
+      - aggregate:
+        - get: greeting-producer
+          trigger: true
+          passed: [ unit-test ]
+        - get: m2
       - task: integration
         file: greeting-producer/ci/tasks/integration.yml
 
   - name: build-artifact
     public: true
     plan:
-      - get: greeting-producer
-        trigger: true
-        passed: [ integration-test ]
+      - aggregate:
+        - get: greeting-producer
+          trigger: true
+          passed: [ integration-test ]
+        - get: m2
       - task: build
         file: greeting-producer/ci/tasks/build.yml
       ##現在デプロイされているアプリのバージョンを取得し、テキストファイルに保存する

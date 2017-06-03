@@ -5,8 +5,10 @@ image_resource:
   source:
     repository: java
     tag: openjdk-8-jdk-alpine
+    
 inputs:
   - name: greeting-producer
+  - name: m2
 
 run:
   path: greeting-producer/ci/tasks/unit.sh
