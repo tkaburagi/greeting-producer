@@ -29,8 +29,6 @@ resources:
     type: maven-cache # Defined in resource_types
     source:
       <<: *maven-repo # We want to cache dependencies of the maven-repo,
-      paths:          # but interested only in the pom.xml, which declares dependencies
-        - pom.xml
 
   # - name: upload-artifact
   #   type: gcs-resource
