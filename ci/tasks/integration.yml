@@ -10,8 +10,5 @@ inputs:
   - name: .m2
   - name: greeting-producer
 
-outputs:
-  - name: .m2
-
 run:
   path: greeting-producer/ci/tasks/integration.sh
