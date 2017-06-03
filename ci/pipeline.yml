@@ -7,7 +7,7 @@ resource_types:
 
 ######RESOURCE######
 resources:
-  - name: demo-onlinestore-service
+  - name: greeting-producer
     type: git
     source:
       uri: {{github-uri}}
@@ -43,31 +43,31 @@ jobs:
   - name: unit-test
     public: true
     plan:
-      - get: demo-onlinestore-service
+      - get: greeting-producer
         trigger: true
       - task: unit
-        file: demo-onlinestore-service/ci/tasks/unit.yml
+        file: greeting-producer/ci/tasks/unit.yml
 
   - name: integration-test
     public: true
     plan:
-      - get: demo-onlinestore-service
+      - get: greeting-producer
         trigger: true
         passed: [ unit-test ]
       - task: integration
-        file: demo-onlinestore-service/ci/tasks/integration.yml
+        file: greeting-producerci/tasks/integration.yml
 
   - name: build-artifact
     public: true
     plan:
-      - get: demo-onlinestore-service
+      - get: greeting-producer
         trigger: true
         passed: [ integration-test ]
       - task: build
-        file: demo-onlinestore-service/ci/tasks/build.yml
+        file: greeting-producer/ci/tasks/build.yml
       ##現在デプロイされているアプリのバージョンを取得し、テキストファイルに保存する
       - task: get-currentapp
-        file: demo-onlinestore-service/ci/tasks/get-currentapp.yml
+        file: greeting-producer/ci/tasks/get-currentapp.yml
         params:
           cf_api: {{cf-api}}
           cf_username: {{cf-username}}
@@ -77,7 +77,7 @@ jobs:
           app_preffix: {{app-preffix}}
       ##保存されたテキストを使ってmanifest.ymlを編集する
       - task: edit-manifest
-        file: demo-onlinestore-service/ci/tasks/edit-manifest.yml
+        file: greeting-producer/ci/tasks/edit-manifest.yml
         params:
           app_preffix: {{app-preffix}}
       # - put: upload-artifact
@@ -87,27 +87,27 @@ jobs:
       - put: cf-push
         params:
           manifest: app-manifest-output/manifest.yml
-          path: build/demo-onlinestore-service.jar
+          path: build/greeting-producer.jar
 
   - name: smoke-test
     public: true
     plan:
-      - get: demo-onlinestore-service
+      - get: greeting-producer
         trigger: true
         passed: [ build-artifact ]
       - task: smoke-test
-        file: demo-onlinestore-service/ci/tasks/smoke.yml
+        file: greeting-producer/ci/tasks/smoke.yml
         params:
           app_domain: {{app-domain}}
 
   - name: promote-new-version 
     plan:
-      - get: demo-onlinestore-service
+      - get: greeting-producer
         trigger: true
         passed: [ smoke-test ]
       ##現在デプロイされているアプリのバージョンを取得し、テキストファイルに保存する
       - task: get-currentapp
-        file: demo-onlinestore-service/ci/tasks/get-currentapp.yml
+        file: greeting-producer/ci/tasks/get-currentapp.yml
         params:
           cf_api: {{cf-api}}
           cf_username: {{cf-username}}
@@ -116,7 +116,7 @@ jobs:
           cf_space: {{cf-space}}
           app_preffix: {{app-preffix}}
       - task: bg-upgrade
-        file: demo-onlinestore-service/ci/tasks/bg-upgrade.yml
+        file: greeting-producer/ci/tasks/bg-upgrade.yml
         params: 
           cf_api: {{cf-api}}
           cf_username: {{cf-username}}
