@@ -9,7 +9,7 @@ image_resource:
 inputs:
   - name: greeting-producer
   - name: m2
-  - name: .m2
+#  - name: .m2
 
 outputs:
   - name: .m2
