@@ -55,7 +55,7 @@ jobs:
         trigger: true
         passed: [ unit-test ]
       - task: integration
-        file: greeting-producerci/tasks/integration.yml
+        file: greeting-producer/ci/tasks/integration.yml
 
   - name: build-artifact
     public: true
