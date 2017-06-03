@@ -4,8 +4,10 @@ image_resource:
   type: docker-image
   source:
     repository: java
-    tag: openjdk-8-jdk-alpine    
+    tag: openjdk-8-jdk-alpine  
+
 inputs:
+  - name: .m2
   - name: greeting-producer
 
 run:

@@ -5,13 +5,18 @@ image_resource:
   source:
     repository: java
     tag: 8-jdk-alpine
+
 inputs:
   - name: greeting-producer
+  - name: .m2
+
 outputs:
   - name: build
+
 run:
   path: sh
   args:
     - greeting-producer/ci/tasks/build.sh
+
 params:
   _JAVA_OPTIONS: -Duser.timezone=Asia/Tokyo -Duser.language=ja -Duser.country=JP -Djava.security.egd=file:/dev/./urandom
