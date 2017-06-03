@@ -1,0 +1,12 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: appropriate/curl
+
+inputs:
+  - name: greeting-producer
+
+run:
+  path: dgreeting-producer/ci/tasks/smoke.sh
