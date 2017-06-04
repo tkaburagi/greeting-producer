@@ -23,4 +23,10 @@ public class GreetingProducerApplication {
 	public Greeting getAccount(@PathVariable String id) {
 		return greetingService.getById(id);
 	}
+	
+	@RequestMapping(value = "v")
+	public String getVersion() {
+		return System.getenv("VERSION");
+	}
+	
 }
