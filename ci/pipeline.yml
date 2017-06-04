@@ -5,11 +5,11 @@ resource_types:
     source:
       repository: frodenas/gcs-resource
 
-  - name: maven-cache
-    type: docker-image
-    source:
-      repository: olhtbr/maven-cache-resource
-      tag: latest
+#  - name: maven-cache
+#    type: docker-image
+#    source:
+#      repository: olhtbr/maven-cache-resource
+#      tag: latest
 
 ######RESOURCE######
 resources:
@@ -20,15 +20,18 @@ resources:
       branch: {{github-branch}}
     check_every: 10s
   
-  - name: maven-repo
-    type: git
-    source: &maven-repo
-      uri: https://github.com/apache/maven
+#  - name: maven-repo
+#    type: git
+#    source: &maven-repo
+#      uri: https://github.com/apache/maven
 
-  - name: maven-cache
-    type: maven-cache # Defined in resource_types
-    source:
-      <<: *maven-repo # We want to cache dependencies of the maven-repo,
+#  - name: maven-cache
+#    type: maven-cache # Defined in resource_types
+#    source:
+#      <<: *maven-repo # We want to cache dependencies of the maven-repo,
+#      path: 
+#        - pom.xml 
+
 
   # - name: upload-artifact
   #   type: gcs-resource
@@ -61,17 +64,13 @@ jobs:
     plan:
       - get: greeting-producer
         trigger: true
-      - get: maven-repo
-        trigger: true
-      - get: maven-cache
-        trigger: true
+#      - get: maven-repo
+#        trigger: true
+#      - get: maven-cache
+#        trigger: true
       - task: unit
         file: greeting-producer/ci/tasks/unit.yml
-        params: 
-          - M2_SETTINGS_REPO_ID: {{m2-settings-repo-id}}
-          - M2_SETTINGS_REPO_USERNAME: {{m2-settings-repo-username}}
-          - M2_SETTINGS_REPO_PASSWORD: {{m2-settings-repo-password}}
-          - M2_REPO: {{maven-local-dir}}
+    
 
   - name: integration-test
     public: true
@@ -80,7 +79,7 @@ jobs:
         - get: greeting-producer
           trigger: true
           passed: [ unit-test ]
-        - get: maven-cache
+#        - get: maven-cache
       - task: integration
         file: greeting-producer/ci/tasks/integration.yml
 
@@ -91,7 +90,7 @@ jobs:
         - get: greeting-producer
           trigger: true
           passed: [ integration-test ]
-        - get: maven-cache
+  #      - get: maven-cache
       - task: build
         file: greeting-producer/ci/tasks/build.yml
       ##現在デプロイされているアプリのバージョンを取得し、テキストファイルに保存する
