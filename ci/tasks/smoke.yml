@@ -3,10 +3,9 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: appropriate/curl
-
+    repository: springcloud/pipeline-base
 inputs:
   - name: greeting-producer
 
 run:
-  path: dgreeting-producer/ci/tasks/smoke.sh
+  path: greeting-producer/ci/tasks/smoke.sh
