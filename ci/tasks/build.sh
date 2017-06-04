@@ -4,5 +4,5 @@ cd greeting-producer
 
 ls -l target
 
-mv target/*.jar ../build/greeting-producer.jar
+mv target/greeting-producer-0.0.1-SNAPSHOT.jar ../build/greeting-producer.jar
 #mv target/*.jar ../build/greeting-producer.jar
