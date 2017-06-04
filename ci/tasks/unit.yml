@@ -1,16 +1,16 @@
 ---
 platform: linux
-image_resource:
-  type: docker-image
-  source:
-    repository: java
-    tag: openjdk-8-jdk-alpine
+#image_resource:
+#  type: docker-image
+#  source:
+#    repository: java
+#    tag: openjdk-8-jdk-alpine
 
-#image_resource: &maven-image
-#   type: docker-image
-#   source:
-#    repository: maven
-#    tag: alpine
+image_resource: &maven-image
+   type: docker-image
+   source:
+    repository: maven
+    tag: alpine
 
 inputs:
   - name: greeting-producer
