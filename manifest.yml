@@ -6,4 +6,5 @@ applications:
   domain: cfapps.io
   instances: 1
   buildpack: java_buildpack
-  VERSION: 1
+  env:
+   VERSION: 1
