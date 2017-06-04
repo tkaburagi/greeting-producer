@@ -7,7 +7,7 @@ image_resource:
     tag: openjdk-8-jdk-alpine  
 
 inputs:
-#  - name: maven-cache
+  - name: m2
   - name: greeting-producer
 
 run:

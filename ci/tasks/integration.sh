@@ -1,5 +1,5 @@
 #!/bin/sh
 cd greeting-producer
-./mvnw test
+ls -laR ~/.m2
 
- ls -ltRa
+./mvnw test

@@ -17,6 +17,10 @@ inputs:
 #  - name: maven-cache
 #  - name: maven-repo
 
+outputs:
+  - name: m2
+    path: ~/.m2
+
 run:
 # dir: maven-repo
   path: greeting-producer/ci/tasks/unit.sh
