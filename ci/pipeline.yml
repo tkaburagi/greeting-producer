@@ -65,9 +65,10 @@ jobs:
   - name: unit-test
     public: true
     plan:
-      - get: greeting-producer
-        trigger: true
-      - get: maven-cache
+      - aggregate: 
+        - get: greeting-producer
+          trigger: true
+        - get: maven-cache
       - task: unit
         file: greeting-producer/ci/tasks/unit.yml
     
