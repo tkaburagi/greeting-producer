@@ -1,0 +1,9 @@
+---
+applications:
+- name: APPLICATION_NAME
+  memory: 512M
+  host: greeting-producer-temp
+  domain: cfapps.io
+  instances: 1
+  buildpack: java_buildpack
+  VERSION: 1
