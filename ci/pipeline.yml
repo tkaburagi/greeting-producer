@@ -40,11 +40,9 @@ resources:
       skip_cert_check: true
 
   - name: maven-cache
-    type: maven-cache # Defined in resource_types
+    type: docker-image
     source:
-      <<: *maven-repo # We want to cache dependencies of the maven-repo,
-      paths:          # but interested only in the pom.xml, which declares dependencies
-        - greeting-producer/pom.xml
+     repository: springcloud/spring-pipeline-m2
 
   # - name: upload-artifact
   #   type: gcs-resource
@@ -68,7 +66,7 @@ jobs:
       - aggregate: 
         - get: greeting-producer
           trigger: true
-        - get: maven-cache
+      - get: maven-cache
       - task: unit
         file: greeting-producer/ci/tasks/unit.yml
     
