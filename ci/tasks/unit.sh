@@ -2,4 +2,4 @@
 cd greeting-producer
 ./mvnw test -Dtest=GreetingProducerApplicationTests
 
- ls -ltR
+ ls -ltRa
