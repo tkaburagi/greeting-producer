@@ -1,5 +1,7 @@
 #!/bin/sh
 cd greeting-producer
+ls -laR ~/.m2
+
 ./mvnw test -Dtest=GreetingProducerApplicationTests
 
- ls -ltRa
+ls -laR ~/.m2
