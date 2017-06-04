@@ -14,12 +14,8 @@ image_resource:
 
 inputs:
   - name: greeting-producer
-#  - name: maven-cache
-#  - name: maven-repo
-
-outputs:
-  - name: m2
-    path: ~/.m2
+  - name: maven-cache
+  - name: maven-repo
 
 run:
 # dir: maven-repo

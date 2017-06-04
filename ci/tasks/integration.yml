@@ -7,8 +7,9 @@ image_resource:
     tag: openjdk-8-jdk-alpine  
 
 inputs:
-  - name: m2
+  - name: maven-cache
   - name: greeting-producer
+  - name: maven-repo
 
 run:
   path: greeting-producer/ci/tasks/integration.sh
