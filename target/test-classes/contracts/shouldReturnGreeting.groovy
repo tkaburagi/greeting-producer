@@ -11,6 +11,8 @@ Contract.make {
 		status 200
 		body([
 				message: 'Hi Kaburagi',
+				name: 'Takayuki',
+				age: 29
 		])
 		headers {
 			header('Content-Type': value(

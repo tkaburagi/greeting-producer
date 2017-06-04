@@ -1,16 +1,16 @@
 {
-  "id" : "e26588b4-da1f-4785-ac42-4a982da3c1a1",
+  "id" : "5bc0a02f-016f-46e6-894d-998d2c239e23",
   "request" : {
     "urlPattern" : "/greeting/[0-9]{5}",
     "method" : "GET"
   },
   "response" : {
     "status" : 200,
-    "body" : "{\"message\":\"Hi Kaburagi\"}",
+    "body" : "{\"message\":\"Hi Kaburagi\",\"name\":\"Takayuki\",\"age\":29}",
     "headers" : {
       "Content-Type" : "application/json"
     },
     "transformers" : [ "response-template" ]
   },
-  "uuid" : "e26588b4-da1f-4785-ac42-4a982da3c1a1"
+  "uuid" : "5bc0a02f-016f-46e6-894d-998d2c239e23"
 }

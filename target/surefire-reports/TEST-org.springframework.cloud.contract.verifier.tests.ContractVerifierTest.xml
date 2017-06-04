@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.springframework.cloud.contract.verifier.tests.ContractVerifierTest" time="0.386" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="org.springframework.cloud.contract.verifier.tests.ContractVerifierTest" time="0.342" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib"/>
@@ -26,15 +26,13 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/tkaburagi/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0/bin/m2.conf"/>
+    <property name="classworlds.conf" value="/usr/local/bin/apache-maven-3.3.9/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/tkaburagi/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
-    <property name="maven.conf" value="/Users/tkaburagi/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.11.6"/>
-    <property name="library.jansi.path" value="/Users/tkaburagi/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0/lib/jansi-native/osx64"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|local.pcfdev.io|*.local.pcfdev.io"/>
     <property name="user.home" value="/Users/tkaburagi"/>
     <property name="user.timezone" value="Asia/Tokyo"/>
@@ -42,11 +40,11 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="tkaburagi"/>
-    <property name="java.class.path" value="/Users/tkaburagi/Documents/sts/spring-cloud-contracts-workshop/greeting-producer/.mvn/wrapper/maven-wrapper.jar"/>
+    <property name="java.class.path" value="/usr/local/bin/apache-maven-3.3.9/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.apache.maven.wrapper.MavenWrapperMain test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -55,7 +53,7 @@
     <property name="java.ext.dirs" value="/Users/tkaburagi/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="/Users/tkaburagi/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0"/>
+    <property name="maven.home" value="/usr/local/bin/apache-maven-3.3.9"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -64,5 +62,44 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|local.pcfdev.io|*.local.pcfdev.io"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="validate_shouldReturnGreeting" classname="org.springframework.cloud.contract.verifier.tests.ContractVerifierTest" time="0.386"/>
+  <testcase name="validate_shouldReturnGreeting" classname="org.springframework.cloud.contract.verifier.tests.ContractVerifierTest" time="0.342">
+    <error message="Parsed JSON [{&quot;id&quot;:&quot;12345&quot;,&quot;message&quot;:&quot;Hi Kaburagi&quot;,&quot;name&quot;:&quot;Takayuki&quot;,&quot;age&quot;:0}] doesn&apos;t match the JSON path [$[?(@.[&apos;age&apos;] == 29)]]" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Parsed JSON [{"id":"12345","message":"Hi Kaburagi","name":"Takayuki","age":0}] doesn't match the JSON path [$[?(@.['age'] == 29)]]
+	at com.toomuchcoding.jsonassert.JsonAsserter.check(JsonAsserter.java:208)
+	at com.toomuchcoding.jsonassert.JsonAsserter.checkBufferedJsonPathString(JsonAsserter.java:243)
+	at com.toomuchcoding.jsonassert.JsonAsserter.isEqualTo(JsonAsserter.java:134)
+	at org.springframework.cloud.contract.verifier.tests.ContractVerifierTest.validate_shouldReturnGreeting(ContractVerifierTest.java:30)
+</error>
+    <system-out><![CDATA[2017-06-04 21:48:50.417  INFO 81033 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.springframework.cloud.contract.verifier.tests.ContractVerifierTest], using SpringBootContextLoader
+2017-06-04 21:48:50.418  INFO 81033 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.springframework.cloud.contract.verifier.tests.ContractVerifierTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2017-06-04 21:48:50.422  INFO 81033 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-06-04 21:48:50.423  INFO 81033 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+2017-06-04 21:48:50.424  INFO 81033 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+2017-06-04 21:48:50.424  INFO 81033 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@67001148, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@989da1, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@31cb96e1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eed0f5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@64030b91, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2032e725, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4d23015c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@383f1975, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@441cc260, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@73a00e09]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.3.RELEASE)
+
+2017-06-04 21:48:50.457  INFO 81033 --- [           main] o.s.c.c.v.tests.ContractVerifierTest     : Starting ContractVerifierTest on kabu-2.local with PID 81033 (started by tkaburagi in /Users/tkaburagi/Documents/sts/spring-cloud-contracts-workshop/greeting-producer)
+2017-06-04 21:48:50.458  INFO 81033 --- [           main] o.s.c.c.v.tests.ContractVerifierTest     : No active profile set, falling back to default profiles: default
+2017-06-04 21:48:50.459  INFO 81033 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@60e5272: startup date [Sun Jun 04 21:48:50 JST 2017]; root of context hierarchy
+2017-06-04 21:48:50.579  INFO 81033 --- [           main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-06-04 21:48:50.750  INFO 81033 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@60e5272: startup date [Sun Jun 04 21:48:50 JST 2017]; root of context hierarchy
+2017-06-04 21:48:50.760  INFO 81033 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/greeting/{id}],methods=[GET]}" onto public com.example.demo.Greeting com.example.demo.GreetingProducerApplication.getAccount(java.lang.String)
+2017-06-04 21:48:50.760  INFO 81033 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v]}" onto public java.lang.String com.example.demo.GreetingProducerApplication.getVersion()
+2017-06-04 21:48:50.762  INFO 81033 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-06-04 21:48:50.762  INFO 81033 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-06-04 21:48:50.775  INFO 81033 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-06-04 21:48:50.775  INFO 81033 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-06-04 21:48:50.793  INFO 81033 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-06-04 21:48:50.857  INFO 81033 --- [           main] o.s.c.c.v.tests.ContractVerifierTest     : Started ContractVerifierTest in 0.428 seconds (JVM running for 2.37)
+2017-06-04 21:48:50.979  INFO 81033 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2017-06-04 21:48:50.979  INFO 81033 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2017-06-04 21:48:50.987  INFO 81033 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 8 ms
+]]></system-out>
+  </testcase>
 </testsuite>

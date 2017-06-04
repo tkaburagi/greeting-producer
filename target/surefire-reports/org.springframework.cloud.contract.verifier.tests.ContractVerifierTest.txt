@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: org.springframework.cloud.contract.verifier.tests.ContractVerifierTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.939 sec - in org.springframework.cloud.contract.verifier.tests.ContractVerifierTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.774 sec <<< FAILURE! - in org.springframework.cloud.contract.verifier.tests.ContractVerifierTest
+validate_shouldReturnGreeting(org.springframework.cloud.contract.verifier.tests.ContractVerifierTest)  Time elapsed: 0.342 sec  <<< ERROR!
+java.lang.IllegalStateException: Parsed JSON [{"id":"12345","message":"Hi Kaburagi","name":"Takayuki","age":0}] doesn't match the JSON path [$[?(@.['age'] == 29)]]
+	at com.toomuchcoding.jsonassert.JsonAsserter.check(JsonAsserter.java:208)
+	at com.toomuchcoding.jsonassert.JsonAsserter.checkBufferedJsonPathString(JsonAsserter.java:243)
+	at com.toomuchcoding.jsonassert.JsonAsserter.isEqualTo(JsonAsserter.java:134)
+	at org.springframework.cloud.contract.verifier.tests.ContractVerifierTest.validate_shouldReturnGreeting(ContractVerifierTest.java:30)
+

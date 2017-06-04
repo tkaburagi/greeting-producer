@@ -27,7 +27,9 @@ public class ContractVerifierTest extends ContractVerifierBase {
 			assertThat(response.header("Content-Type")).matches("application/json.*");
 		// and:
 			DocumentContext parsedJson = JsonPath.parse(response.getBody().asString());
+			assertThatJson(parsedJson).field("['age']").isEqualTo(29);
 			assertThatJson(parsedJson).field("['message']").isEqualTo("Hi Kaburagi");
+			assertThatJson(parsedJson).field("['name']").isEqualTo("Takayuki");
 	}
 
 }
