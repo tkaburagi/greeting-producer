@@ -10,7 +10,7 @@ public class Greeting {
         this.id = id;
         this.message = message;
         this.name = name;
-//        this.age = age;
+        this.age = age;
     }
 
 	public int getAge() {
