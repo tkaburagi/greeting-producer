@@ -6,11 +6,11 @@ public class Greeting {
     private String name;
     private int age;
 
-    public Greeting(String id, String message, String name) {
+    public Greeting(String id, String message, String name, int age) {
         this.id = id;
         this.message = message;
         this.name = name;
-       // this.age = age;
+        this.age = age;
     }
 
 	public int getAge() {
