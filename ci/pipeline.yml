@@ -60,9 +60,12 @@ jobs:
         - get: greeting-producer
           trigger: true
       - get: m2
+      - put: tracker-output
+        params: 
+          repos:
+            - greeting-producer
       - task: unit
-        file: greeting-producer/ci/tasks/unit.yml
-    
+        file: greeting-producer/ci/tasks/unit.yml    
 
   - name: integration-test
     public: true
@@ -115,10 +118,6 @@ jobs:
       - get: greeting-producer
         trigger: true
         passed: [ build-artifact ]
-      - put: tracker-output
-        params:
-          repos: 
-          - git-repo-path: greeting-producer
       - task: smoke-test
         file: greeting-producer/ci/tasks/smoke.yml
         params:
