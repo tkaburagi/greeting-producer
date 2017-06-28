@@ -33,8 +33,8 @@ resources:
   - name: tracker-output
     type: tracker
     source:
-      token: TRACKER_API_TOKEN
-      project_id: "21b7ad639ec014a277a0aed2be733606"
+      token: 21b7ad639ec014a277a0aed2be733606
+      project_id: "2068097"
       tracker_url: https://www.pivotaltracker.com
 
   # - name: upload-artifact
