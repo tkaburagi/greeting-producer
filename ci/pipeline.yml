@@ -30,6 +30,13 @@ resources:
     source:
      repository: springcloud/spring-pipeline-m2
 
+  - name: tracker-output
+    type: tracker
+    source:
+      token: TRACKER_API_TOKEN
+      project_id: "9d717ed1974413293e7761c2103b43e7"
+      tracker_url: https://www.pivotaltracker.com
+
   # - name: upload-artifact
   #   type: gcs-resource
   #   source:
@@ -108,6 +115,10 @@ jobs:
       - get: greeting-producer
         trigger: true
         passed: [ build-artifact ]
+      - put: tracker-output
+        params:
+          repos: 
+          - git-repo-path: greeting-producer
       - task: smoke-test
         file: greeting-producer/ci/tasks/smoke.yml
         params:
