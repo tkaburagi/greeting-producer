@@ -7,4 +7,4 @@ applications:
   instances: 1
   buildpack: java_buildpack
   env:
-   VERSION: 12
+   VERSION: 13
