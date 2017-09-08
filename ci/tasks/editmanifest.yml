@@ -7,7 +7,6 @@ image_resource:
     repository: pivotalservices/docker-concourse-cf-tools
     tag: "latest"
 
-
 inputs:
   - name: greeting-producer
   - name: current-app-info
@@ -16,4 +15,4 @@ outputs:
   - name: app-manifest-output
 
 run:
-  path: greeting-producer/ci/tasks/edit-manifest.sh
+  path: greeting-producer/ci/tasks/editmanifest.sh
