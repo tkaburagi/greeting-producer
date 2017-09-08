@@ -9,5 +9,9 @@ image_resource:
 inputs:
   - name: m2
   - name: greeting-producer
+
+caches:
+  - path: repo/m2
+
 run:
   path: greeting-producer/ci/tasks/integration.sh

@@ -1,5 +1,11 @@
 #!/bin/sh
-cd greeting-producer
+
+set -e
+cd repo
+rm -rf ~/.m2
+ln -fs $(pwd)/m2 ~/.m2
+
+cd ../greeting-producer
 ./mvnw clean package
 
 ls -l target

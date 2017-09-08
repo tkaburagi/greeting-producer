@@ -13,6 +13,9 @@ inputs:
 outputs:
   - name: build
 
+caches:
+  - path: repo/m2
+
 run:
   path: sh
   args:
