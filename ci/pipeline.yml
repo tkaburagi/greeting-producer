@@ -81,7 +81,6 @@ jobs:
         - get: greeting-producer
           trigger: true
           passed: [ integration-test ]
-        - get: m2
       - task: build
         file: greeting-producer/ci/tasks/build.yml
       ##現在デプロイされているアプリのバージョンを取得し、テキストファイルに保存する
