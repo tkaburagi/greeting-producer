@@ -1,7 +1,7 @@
 ---
 applications:
 - name: APPLICATION_NAME
-  memory: 512M
+  memory: 1G
   host: greeting-producer-temp
   domain: cfapps.io
   instances: 1
