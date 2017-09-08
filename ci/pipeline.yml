@@ -85,7 +85,49 @@ jobs:
         file: greeting-producer/ci/tasks/build.yml
       ##現在デプロイされているアプリのバージョンを取得し、テキストファイルに保存する
       - task: get-currentapp
-        file: greeting-producer/ci/tasks/get-currentapp.yml
+        #file: greeting-producer/ci/tasks/get-currentapp.yml
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: tkaburagi/sc-demo
+          inputs:
+            - name: greeting-producer
+          outputs:
+            - name: current-app-info
+          caches:
+            - path: repo/m2
+          run:
+            path: bash
+            args:
+              - -c 
+              - |
+                set -xe
+
+                pwd
+                env
+
+                cf login -a $cf_api -u $cf_username -p $cf_password -o "$cf_organization" -s "$cf_space" --skip-ssl-validation
+
+                cf apps
+
+                set +e
+
+                cf apps | grep prd-$app_preffix | grep green
+
+                if [ $? -eq 0 ]
+                then
+                  echo "green" > ./current-app-info/current-app.txt
+                  echo "blue" > ./current-app-info/next-app.txt
+                else
+                  echo "blue" > ./current-app-info/current-app.txt
+                  echo "green" > ./current-app-info/next-app.txt
+                fi
+                set -xe
+
+                echo "Current main app routes to app instance $(cat ./current-app-info/current-app.txt)"
+                echo "New version of app to be deployed to instance $(cat ./current-app-info/next-app.txt)"
         params:
           cf_api: {{cf-api}}
           cf_username: {{cf-username}}
