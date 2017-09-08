@@ -16,4 +16,4 @@ outputs:
 run:
   path: sh
   args:
-    - greeting-producer/ci/tasks/get-currentapp.sh
+    - greeting-producer/ci/tasks/getcurrentapp.sh
