@@ -9,11 +9,11 @@ image_resource:
 
 
 inputs:
-- name: greeting-producer
-- name: current-app-info
+  - name: greeting-producer
+  - name: current-app-info
 
 outputs:
-- name: app-manifest-output
+  - name: app-manifest-output
 
 run:
   path: greeting-producer/ci/tasks/edit-manifest.sh

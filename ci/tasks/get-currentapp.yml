@@ -8,10 +8,10 @@ image_resource:
     tag: "latest"
 
 inputs:
- - name: greeting-producer
+  - name: greeting-producer
 
 outputs:
- - name: current-app-info
+  - name: current-app-info
 
 run:
   path: greeting-producer/ci/tasks/get-currentapp.sh

@@ -8,8 +8,8 @@ image_resource:
     tag: "latest"
 
 inputs:
-- name: greeting-producer
-- name: current-app-info
+  - name: greeting-producer
+  - name: current-app-info
 
 run:
   path: greeting-producer/ci/tasks/bg-upgrade.sh
