@@ -138,7 +138,7 @@ jobs:
           app_preffix: {{app-preffix}}
       ##保存されたテキストを使ってmanifest.ymlを編集する
       - task: edit-manifest
-        file: greeting-producer/ci/tasks/edit-manifest.yml
+        file: greeting-producer/ci/tasks/editmanifest.yml
         params:
           app_preffix: {{app-preffix}}
       # - put: upload-artifact
