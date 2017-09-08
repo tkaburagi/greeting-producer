@@ -8,7 +8,7 @@ image_resource:
 
 inputs:
   - name: greeting-producer
- # - name: current-app-info
+  - name: current-app-info
 
 outputs:
   - name: app-manifest-output
