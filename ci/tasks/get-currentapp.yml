@@ -13,10 +13,7 @@ inputs:
 outputs:
   - name: current-app-info
 
-caches:
-  - path: repo/m2
-
 run:
   path: sh
   args:
-    - greeting-producer/ci/tasks/build.sh
+    - greeting-producer/ci/tasks/get-currentapp.sh
